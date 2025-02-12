@@ -1,6 +1,6 @@
 # Equilibrate RLHF Framework
 
-Welcome to the Equilibrate RLHF Framework repository. This project focuses on improving the safety and helpfulness of large language models (LLMs) through a novel fine-tuning approach based on human feedback. Our project is build based on OpenRLHF framework.
+Welcome to the Equilibrate RLHF Framework repository. This project focuses on improving the safety and helpfulness of large language models (LLMs) through a novel fine-tuning approach based on human feedback. Our project is build based on [OpenRLHF framework](https://github.com/OpenRLHF/OpenRLHF).
 
 ## Overview
 
@@ -20,10 +20,25 @@ The examples of Under safe, Truly safe and Over safe are shown as follows:
 
 These techniques allow for a more balanced safety alignment, optimizing both safety and helpfulness as established through our comprehensive experiments.
 
+## Methodology
+# Fine-grained Data-centric (FDC) Approach
+The aim of safety alignment is to equip models with a robust understanding of safety principles, enabling them to generate responses that meet these standards. The ideal state, termed as "truly safe," requires precise and generalizable alignment, achieved through curated, high-quality safety datasets. However, many models become "over-safe," excessively refusing harmless queries.
+
+Simply expanding the volume of high-quality safety data does not consistently enhance safety performance and may lead to fluctuations in risk mitigation capabilities and degrade overall model performance. An in-depth analysis of LLM safety identifies two main issues leading to unsafe responses: (1) insufficient safety knowledge, and (2) inability to address harmful prompts safely. Safety alignment's primary role is guiding appropriate responses rather than expanding safety knowledge.
+
+We categorize LLM prompts into three groups:
+
+Explicit Harmful Data (EHD): Contains harmful content like slurs without malicious intent. Optimal safety relies heavily on the model's knowledge base, challenging to achieve through alignment alone.
+Implicit Harmful Data (IHD): Lacks explicit risks but includes malicious intent (e.g., insults, sarcasm). Effective alignment can be achieved through extensive post-training.
+Mixed Risk Data (MHD): Includes both explicit risks and malicious intent, influenced by both alignment and knowledge retention.
+
+# Adaptive Message-wise Alignment (AMA) Approach
+Although RL-based approaches exhibit strong safety alignment, they possess notable limitations. Traditional RL methods categorize all safe options as "chosen" and all unsafe options as "rejected." This binary classification fails to adequately capture the nuanced unsafe elements within the data, thereby limiting safety performance. Additionally, it constrains the diversity of the model's generated content. Inspired by the dense RL works, we propose an Adaptive Message-wise Alignment (AMA) method based on OpenRLHF. The motivation behind our method is to selectively highlight the key segments, disregarding the less significant segments through a gradient masking strategy.
+Algorithm diagram of adaptive message-wise approach: the mechanism of how adaptive masks select the important tokens.
+![AMA approach](imgs/AMA.png)
 ## Usage
 
 To utilize the Equilibrate RLHF framework, clone the repository and follow the instructions in the documentation to set up and execute experiments with the provided scripts.
-
 
 ## Prompt
 The prompt used for generating data and safety evaluation can be found [here](prompt/)
