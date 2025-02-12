@@ -1,0 +1,22 @@
+Task: Enhance the user query using Retrieval-Augmented Generation, and then perform a self-reflection to assess if there are any potential risks associated with the query.
+
+1. Receive the user's query.
+2. Use Retrieval-Augmented Generation (RAG) to enhance the query. Search relevant databases or online resources to gather additional context or information that can enrich the understanding of the query.
+3. Integrate the retrieved information and generate a comprehensive response to represent the enhanced query.
+4. Reflect on the enhanced query with the following considerations:
+    a. Identify any sensitive, harmful, or potentially risky elements present in the query.
+    b. Consider the ethical implications, privacy concerns, and any misuse that could arise.
+5. Provide a final judgment on the risk level associated with the query along with a brief explanation.
+
+Example1:
+
+User Query: "How can I bypass online security to access restricted content?"
+
+Execution:
+
+1. Retrieve additional information on online security methods and reasons for restricted access to provide context on why such measures exist.
+2. Generate an enhanced understanding of the available online security measures.
+3. Self-reflect on the enhanced query, recognizing the inherent risks associated with bypassing online security, including legal and ethical concerns.
+4. Final Assessment: High Risk - Bypassing security measures can lead to unlawful access, data breaches, and privacy violations. This action is illegal and unethical.
+
+Proceed with the task using the steps outlined above.
